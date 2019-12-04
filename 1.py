@@ -3,6 +3,16 @@ Advent of Code 2019
 Cody Shepherd
 
 Day 1, Parts 1 & 2
+
+Part 1 Solution:
+
+This is straightforward, and we are told how to do it; the only trick is to
+remember to use integer (truncated) division.
+
+Part 2 Solution:
+
+I used recursion here because the range of numbers involved is small enough
+that we can feel good we aren't going to blow the stack.
 '''
 
 import functools

@@ -1,3 +1,22 @@
+'''
+Advent of Code 2019
+Cody Shepherd
+
+Day 3, Parts 1 & 2
+
+Part 1 Solution:
+
+Generate the coordinates that comprise each wire path, do set intersection,
+and compare rectilinear distances to find the closest.
+
+Part 2 Solution:
+
+Because the way we generated coordinates in part 1 was sequential or path-like,
+we can simply go through each coordinate in the set intersection and follow
+the wire path while counting. Sum this figure for each wire for each relevant
+coordinate, and we can find the closest one.
+'''
+
 from typing import (
     Generator,
     List,

@@ -1,3 +1,28 @@
+'''
+Advent of Code 2019
+Cody Shepherd
+
+Day 2, Parts 1 & 2
+
+Part 1 Solution:
+
+Use a dispatch table to run the required operation from the appropriate
+"memory word," sliding the window along as we go to read subsequent
+instructions.
+
+Part 2 Solution:
+
+Loop through all possible pairs to find the one that produces the answer.
+
+We could certainly use a generator function instead of a list comprehension to
+save on time and memory, but this would only really be noticeably beneficial
+if the range of numbers was very large.
+
+I have a feeling that there's a way to factorize our target figure to at least
+narrow down the domain of noun/verb pairs, but I'll leave that to the
+mathematicians.
+'''
+
 from typing import List
 
 INPUT_FILE = 'input_2.txt'

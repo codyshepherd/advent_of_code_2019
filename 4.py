@@ -11,7 +11,7 @@ required conditions.
 
 This choice necessitates more casting back and forth than is probably
 necessary; I could probably have masked bits or modded by powers of ten to
-compare numerals without casting to strings and back, but fie.
+compare numerals without casting to strings and back, but...I didn't.
 
 Ultimately the solution is about brute-force scanning of strings, which is
 tedious to write and tedious to read, so I'm not sure that I achieved my goal
@@ -93,19 +93,21 @@ def num_possible_2(start: int, end: int) -> int:
     return count
 
 
-assert(has_adjacent('111111'))
-assert(is_ascending('111111'))
+if __name__ == '__main__':
 
-assert(has_adjacent('223450'))
-assert(not is_ascending('223450'))
+    assert(has_adjacent('111111'))
+    assert(is_ascending('111111'))
 
-assert(not has_adjacent('123789'))
-assert(is_ascending('123789'))
+    assert(has_adjacent('223450'))
+    assert(not is_ascending('223450'))
 
-print(num_possible(MIN, MAX))
+    assert(not has_adjacent('123789'))
+    assert(is_ascending('123789'))
 
-assert(has_adjacent_2('112233'))
-assert(not has_adjacent_2('123444'))
-assert(has_adjacent_2('111122'))
+    print(num_possible(MIN, MAX))
 
-print(num_possible_2(MIN, MAX))
+    assert(has_adjacent_2('112233'))
+    assert(not has_adjacent_2('123444'))
+    assert(has_adjacent_2('111122'))
+
+    print(num_possible_2(MIN, MAX))

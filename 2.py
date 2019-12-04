@@ -36,8 +36,8 @@ if __name__ == '__main__':
     with open(INPUT_FILE, 'r') as fh:
         raw = fh.read()
 
-    vector = raw.split('\n')[0]
-    vector = [int(x) for x in vector.split(',')]
+    vector_str = raw.split('\n')[0]
+    vector = [int(x) for x in vector_str.split(',')]
     part_1_vector = vector.copy()
     part_1_vector[1] = 12
     part_1_vector[2] = 2

@@ -12,12 +12,12 @@ from typing import List
 INPUT_FILE = 'input_1.txt'    # each line is a numeric string
 
 
-def fuel_required(module_mass: int):
+def fuel_required(module_mass: int) -> int:
 
     return (module_mass//3)-2
 
 
-def naive_fuel(module_masses: List[int]):
+def naive_fuel(module_masses: List[int]) -> int:
     answers = []
     for module_mass in module_masses:
         answers.append(fuel_required(module_mass))
@@ -25,7 +25,7 @@ def naive_fuel(module_masses: List[int]):
     return functools.reduce(lambda x, y: x+y, answers)
 
 
-def complete_mass(module_masses: List[int]):
+def complete_mass(module_masses: List[int]) -> int:
     answers = []
     for module_mass in module_masses:
         additional_fuel = recursive_fuel(module_mass)
@@ -35,7 +35,7 @@ def complete_mass(module_masses: List[int]):
     return functools.reduce(lambda x, y: x+y, answers)
 
 
-def recursive_fuel(fuel_mass: int):
+def recursive_fuel(fuel_mass: int) -> int:
     if fuel_mass <= 0:
         return 0
 

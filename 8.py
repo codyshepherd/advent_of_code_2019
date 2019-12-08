@@ -7,6 +7,10 @@ DEBUG = False
 WIDE = 25
 TALL = 6
 
+BLACK = 0
+WHITE = 1
+TRANSPARENT = 2
+
 
 def find_densest_layer(layers: List[List[List[int]]]) -> List[List[int]]:
     lowest_zeros = sum([len(row) for row in layers[0]]) # num pixels per layer
@@ -42,6 +46,33 @@ def layers(raw: str, wide: int, tall: int) -> List[List[List[int]]]:
 
     return all_layers
 
+def convert(i: int) -> str:
+    if i == BLACK:
+        return '   '
+    if i == WHITE:
+        return '[=]'
+    if i == TRANSPARENT:
+        return ' '
+
+
+def show(layer: List[List[int]]) -> str:
+    string = ''
+    for r, row in enumerate(layer):
+        string += ''.join(list(map(lambda i: convert(i), row))) + '\n'
+
+    return string
+
+def stack_layers(layers: List[List[List[int]]], wide: int, tall: int) -> List[List[int]]:
+    final_layer = [[TRANSPARENT for c in range(wide)] for r in range(tall)]
+
+    for layer in layers:
+        for r in range(tall):
+            for c in range(wide):
+                if layer[r][c] != TRANSPARENT and final_layer[r][c] == TRANSPARENT:
+                    final_layer[r][c] = layer[r][c]
+
+    return final_layer
+
 
 @click.command()
 @click.option('-p', '--program', type=click.Path(exists=True, dir_okay=False),
@@ -74,8 +105,13 @@ def main(program, debug, wide, tall):
 
     if DEBUG:
         print(f'densest layer:\n{densest}')
+        print(f'layers list:\n{layers_list}')
 
     print(f"Part 1 Solution: {solution}")
+    final_layer = stack_layers(layers_list, wide, tall)
+    if DEBUG:
+        print(f"final layer: {final_layer}")
+    print(show(final_layer))
     print("Finished!")
 
 if __name__ == '__main__':

@@ -1,3 +1,13 @@
+'''
+Advent of Code 2019
+Cody Shepherd
+
+Day 8, Parts 1 & 2
+
+These solutions just involved creation and manipulation of nested lists, which
+is easy to do in python.
+'''
+
 import click
 
 from typing import (

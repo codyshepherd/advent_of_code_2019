@@ -302,7 +302,12 @@ def main(program, debug):
     computer = Amplifier("BOOST", instructions.copy(), None)
     computer.add_input('1')
     run_program(computer)
-    print("Output: ", ', '.join(computer.output_buffer.queue))
+    print("Part 1 Output: ", ', '.join(computer.output_buffer.queue))
+
+    new_comp = Amplifier("COMPLETE", instructions.copy(), None)
+    new_comp.add_input('2')
+    run_program(new_comp)
+    print("Part 2 Output: ", ', '.join(new_comp.output_buffer.queue))
 
     print("Finished!")
 
